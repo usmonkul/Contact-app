@@ -1,0 +1,86 @@
+@import "tailwindcss";
+
+
+/* 
+width: 
+w-20
+w-80   = 320px
+w-full = width: 100%;
+w-screen = width: 100vw;
+
+
+
+background-color:
+bg-red-800
+bg-black;
+bg-green-100
+bg-[#ff4455]
+
+color
+text-red-800
+text-black
+text-green-500
+
+
+border
+border-red-500 = border-color: red;
+border-2 = border-width: 8px
+rounded
+rounded-2
+rounded-2xl
+rounded-md
+rounded-full
+
+
+
+padding
+p-4 = padding: 16px;
+py-4 - Y o'qi bo'yicha
+px-6 - X o'qi bo'yicha.
+pt-2
+pb-3
+pr-2
+pl-2
+
+
+margin
+m-2.5  = margin: 10px;
+my-4
+mx-4
+mt-2
+mb-4
+mr-4
+ml-4
+
+font-size
+text-sm
+text-base
+text-lg
+text-xl
+text-2xl
+text-8
+text-6
+
+font-weight
+font-light
+font-bold
+font-medium
+font-black
+font-[500]
+font-[900]
+
+
+text-align:  center, left, right, justify
+text-center
+text-left
+text-right
+text-justify
+
+flexbox
+
+flex = desplay: flex;
+items-center;  align-items: center;
+justify-between. justify-content: space-between;
+flex-col. flex-direction: column;
+
+*/

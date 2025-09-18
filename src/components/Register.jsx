@@ -42,6 +42,7 @@ export default function Register({ handleLogin }) {
                     <input value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full h-full outline-none border-none"  type="text" placeholder="Familiya (Ixtiyoriy)" />
                 </div>
                 <button onClick={handleSignIn} className="w-full bg-[#394867] text-white p-2 rounded-lg">Kirish</button>
+                <p>Ism: Ali, Familiya: Valiyev</p>
             </div>
         </div>
         <img className="w-1/2 lg:w-1/3 absolute bottom-0 right-0 -z-10" src={loginBg} alt="" />

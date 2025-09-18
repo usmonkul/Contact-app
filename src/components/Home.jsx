@@ -4,17 +4,49 @@ import avatar from "../assets/avatar.png"
 import addImage from "../assets/addImage.png"
 import user from "../assets/user.svg"
 import twoUsers from "../assets/twoUsers.svg"
+import ContactUser from "./ContactUser"
+
+
+const contactsData = [
+    {
+        name: "Usmonqul",
+        lastName: "Hakimov",
+        phone: "+998 90 123 45 67",
+        email: "usmonqul@gmail.com",
+        additionalInfo: "Qo'shimcha ma'lumot",
+        isFavorite: true
+
+    },
+    {
+        name: "Usmonqul",
+        lastName: "Hakimov",
+        phone: "+998 90 123 45 67",
+        email: "usmonqul@gmail.com",
+        additionalInfo: "Qo'shimcha ma'lumot",
+        isFavorite: false
+
+    },
+    {
+        name: "Usmonqul",
+        lastName: "Hakimov",
+        phone: "+998 90 123 45 67",
+        email: "usmonqul@gmail.com",
+        additionalInfo: "Qo'shimcha ma'lumot",
+        isFavorite: false
+    }
+]
 
 export default function Home() {
+    const [contacts, setContacts] = useState(contactsData)
     const [name, setName] = useState("")
     const [lastName, setLastName] = useState("")
     return (
         <section className="">
             <Header theme="light" />
-            <div className="flex px-4 py-10 flex-col gap-10">
+            <div className="flex py-10 flex-col lg:flex-row gap-10 md:gap-2 px-4">
                 <div className="">
                     <h2 className="text-xl font-medium mb-4 tracking-wide">Kontakt yaratish</h2>
-                    <div className="w-full md:w-[350px] bg-[#394867] rounded-2xl shadow-2xl">
+                    <div className="w-full md:w-[450px] bg-[#394867] rounded-2xl shadow-2xl">
                         <div className="relative w-fit py-8 m-auto">
                             <img className="m-auto" src={avatar} alt="" />
                             <img className="absolute right-0 bottom-8" src={addImage} alt="" />
@@ -49,14 +81,14 @@ export default function Home() {
                         </div>
                     </div>
                 </div>
-                <div className="ml-6 w-full">
+                <div className="md:ml-6 w-full">
                     <h2  className="text-xl font-medium mb-4 tracking-wide text-center">Kontaktlar</h2>
-                    <div className="bg-gray-200 rounded-2xl shadow-2xl w-full px-4 py-5">
-                        <div className="flex items-center justify-between mb-6">
+                    <div className="bg-gray-200 rounded-2xl shadow-2xl w-full py-5">
+                        <div className="flex items-center justify-between mb-6 px-4 ">
                             <h3>Usmonqul Hakimov</h3>
                             <img className="w-8 h-8 border-1 rounded-full" src={avatar} alt="" />
                         </div>
-                        <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-1.5">
+                        <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-1.5 mx-4">
                                 <img src={twoUsers} alt="" />
                                 <span className="h-6 w-[1px] bg-black"></span>
                                 <input className="w-full grow h-full outline-none border-none"  type="text" placeholder="Qo'shimcha ma'lumot" />
@@ -64,7 +96,9 @@ export default function Home() {
                                 <button className="text-sm">Barchasi</button>
                         </div>
                         <ul>
-                            <li></li>
+                           {contacts.map((contact, index) => (
+                            <ContactUser key={index} contact={contact} />
+                           ))}
                         </ul>
                     </div>
                 </div>

@@ -52,6 +52,7 @@ export default function Home() {
     const [phone, setPhone] = useState("")
     const [additionalInfo, setAdditionalInfo] = useState("")
     const [isFavorite, setIsFavorite] = useState(false)
+    const [search, setSearch] = useState("")
 
     const handleAddContact = () => {
 
@@ -60,6 +61,14 @@ export default function Home() {
 
     const handleFavorite = (id) => {
         setContacts(contacts.map(c => c.id === id ? {...c, isFavorite: !c.isFavorite} : c))
+    }
+
+    const handleFilder = () => {
+        if (search === "") {
+            return contacts
+        } else {
+            return contacts.filter(c => c.name.toLowerCase().includes(search.toLowerCase()))
+        }
     }
 
     return (
@@ -118,12 +127,12 @@ export default function Home() {
                         <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-1.5 mx-4">
                                 <CiSearch className="text-2xl" />
                                 <span className="h-6 w-[1px] bg-black"></span>
-                                <input className="w-full grow h-full outline-none border-none"  type="search" placeholder="Kontakt qidirish" />
+                                <input value={search} onChange={(e) => setSearch(e.target.value)} className="w-full grow h-full outline-none border-none"  type="search" placeholder="Kontakt qidirish" />
                                 <span className="h-6 w-[1px] bg-black"></span>
                                 <button className="text-sm">Barchasi</button>
                         </div>
                         <ul>
-                           {contacts.map((contact, index) => (
+                           {handleFilder().map((contact, index) => (
                             <ContactUser key={index} contact={contact} handleFavorite={handleFavorite} />
                            ))}
                         </ul>

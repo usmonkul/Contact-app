@@ -5,7 +5,7 @@ import { MdOutlineWbSunny } from "react-icons/md";
 export default function Header({theme, setTheme}) {
 
     return (
-        <header className={clsx("flex items-center justify-between p-4", theme === "dark" ? "bg-[#263148] text-white" : "bg-gray-200")}>
+        <header className={clsx("flex items-center justify-between p-4", theme === "dark" ? "bg-[#263148] text-white" : "bg-[#F6F9FA]")}>
             <a className="border-1 rounded-lg py-1 px-2 flex items-center gap-2 hover:bg-[#394867] hover:text-white" href="/">
                 <span className="hidden md:block tracking-wide">Yaqinlarim.uz</span>
                 <FaCode className="text-xl" />

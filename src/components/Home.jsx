@@ -73,7 +73,7 @@ export default function Home({theme, setTheme}) {
     }
 
     return (
-        <section className={clsx("min-h-screen", theme === "dark" ? "bg-[#212A3E] text-white" : "bg-gray-200")}>
+        <section className={clsx("min-h-screen", theme === "dark" ? "bg-[#212A3E] text-white" : "bg-white")}>
             <Header theme={theme} setTheme={setTheme} />
             <div className="flex py-10 flex-col lg:flex-row gap-10 md:gap-2 px-4">
                 <div className="">
@@ -120,8 +120,8 @@ export default function Home({theme, setTheme}) {
                 </div>
                 <div className="md:ml-6 w-full">
                     <h2  className="text-xl font-medium mb-4 tracking-wide text-center">Kontaktlar</h2>
-                    <div className={clsx("rounded-2xl shadow-2xl w-full py-5", theme === "dark" ? "bg-[#394867] text-white" : "bg-gray-200")}>
-                        <div className="flex items-center justify-between mb-6 px-4 ">
+                    <div className={clsx("rounded-2xl shadow-2xl w-full py-5", theme === "dark" ? "bg-[#394867] text-white" : "bg-[#F6F9FA]")}>
+                        <div className="flex items-center justify-between mb-6 px-4 ">  
                             <h3>Usmonqul Hakimov</h3>
                             <img className="w-8 h-8 border-1 rounded-full" src={avatar} alt="" />
                         </div>

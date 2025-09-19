@@ -1,11 +1,12 @@
 import avatar from "../assets/avatar.png"
 import { CiStar } from "react-icons/ci";
 import { GoStarFill } from "react-icons/go";
+import clsx from "clsx";
 
-export default function ContactUser({contact, handleFavorite}) {
+export default function ContactUser({contact, handleFavorite, theme}) {
     const {name, lastName, phone, email, additionalInfo, isFavorite, id} = contact
     return (
-        <li className="flex items-center gap-2 p-4 [&:nth-child(even)]:bg-gray-300">
+        <li className={clsx("flex items-center gap-2 p-4 ", theme === "dark" ? "[&:nth-child(even)]:bg-[rgba(57,72,103, 0.6)] text-white [&:nth-child(odd)]:bg-[#212A3E]" : "[&:nth-child(even)]:bg-gray-300")}>
             <img className="w-16 h-16 border-1 rounded-full" src={avatar} alt="" />
             <div className="">
                 <h3 className="font-medium mb-1">{name} {lastName}</h3>

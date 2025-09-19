@@ -14,6 +14,7 @@ import { CiStar } from "react-icons/ci";
 
 const contactsData = [
     {
+        id: 1,
         name: "Usmonqul",
         lastName: "Hakimov",
         phone: "+998 90 123 45 67",
@@ -23,8 +24,9 @@ const contactsData = [
 
     },
     {
-        name: "Usmonqul",
-        lastName: "Hakimov",
+        id: 2,
+        name: "Alisher",
+        lastName: "Karimov",
         phone: "+998 90 123 45 67",
         email: "usmonqul@gmail.com",
         additionalInfo: "Qo'shimcha ma'lumot",
@@ -32,8 +34,9 @@ const contactsData = [
 
     },
     {
-        name: "Usmonqul",
-        lastName: "Hakimov",
+        id: 3,
+        name: "Abdug'affor",
+        lastName: "Rahimov",
         phone: "+998 90 123 45 67",
         email: "usmonqul@gmail.com",
         additionalInfo: "Qo'shimcha ma'lumot",
@@ -53,6 +56,10 @@ export default function Home() {
     const handleAddContact = () => {
 
         setContacts([{name, lastName, phone, email, additionalInfo, isFavorite}, ...contacts])
+    }
+
+    const handleFavorite = (id) => {
+        setContacts(contacts.map(c => c.id === id ? {...c, isFavorite: !c.isFavorite} : c))
     }
 
     return (
@@ -117,7 +124,7 @@ export default function Home() {
                         </div>
                         <ul>
                            {contacts.map((contact, index) => (
-                            <ContactUser key={index} contact={contact} />
+                            <ContactUser key={index} contact={contact} handleFavorite={handleFavorite} />
                            ))}
                         </ul>
                     </div>

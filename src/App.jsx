@@ -3,7 +3,7 @@ import Register from "./components/Register"
 import Home from "./components/Home"
 
 function App() {
-  const [isLogin, setIsLogin] = useState(false)
+  const [isLogin, setIsLogin] = useState(true)
 
   const handleLogin = () => {
     setIsLogin(prev => !prev)

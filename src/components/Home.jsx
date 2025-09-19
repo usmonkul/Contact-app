@@ -2,9 +2,14 @@ import { useState } from "react"
 import Header from "./Header"
 import avatar from "../assets/avatar.png"
 import addImage from "../assets/addImage.png"
-import user from "../assets/user.svg"
-import twoUsers from "../assets/twoUsers.svg"
 import ContactUser from "./ContactUser"
+import { CiSearch } from "react-icons/ci";
+import { CiUser } from "react-icons/ci";
+import { FiUsers } from "react-icons/fi";
+import { CiPhone } from "react-icons/ci";
+import { HiOutlineMail } from "react-icons/hi";
+import { SlNote } from "react-icons/sl";
+import { CiStar } from "react-icons/ci";
 
 
 const contactsData = [
@@ -40,6 +45,16 @@ export default function Home() {
     const [contacts, setContacts] = useState(contactsData)
     const [name, setName] = useState("")
     const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phone, setPhone] = useState("")
+    const [additionalInfo, setAdditionalInfo] = useState("")
+    const [isFavorite, setIsFavorite] = useState(false)
+
+    const handleAddContact = () => {
+
+        setContacts([{name, lastName, phone, email, additionalInfo, isFavorite}, ...contacts])
+    }
+
     return (
         <section className="">
             <Header theme="light" />
@@ -53,31 +68,36 @@ export default function Home() {
                         </div>
                         <div className="border-top-2 p-3 rounded-2xl bg-white">
                             <h3 className="mb-2 text-lg ">Iltmos ismingizni kiriting</h3>
-                            <div className="border-2 rounded-lg mb-2 flex items-center gap-2 p-2">
-                                <img src={user} alt="" />
+                            <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-2">
+                                <CiUser className="text-2xl" />
+                                <span className="h-6 w-[1px] bg-black"></span>
                                 <input value={name} onChange={(e) => setName(e.target.value)} className="w-full h-full outline-none border-none" type="text" placeholder="Ism" />
                             </div>
-                            <div className="border-2 rounded-lg mb-2 flex items-center gap-2 p-2">
-                                <img src={twoUsers} alt="" />
+                            <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-2">
+                                <FiUsers className="text-xl" />
                                 <span className="h-6 w-[1px] bg-black"></span>
                                 <input value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full h-full outline-none border-none"  type="text" placeholder="Familiya (Ixtiyoriy)" />
                             </div>
-                            <div className="border-2 rounded-lg mb-2 flex items-center gap-2 p-2">
-                                <img src={twoUsers} alt="" />
+                            <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-2">
+                                <CiPhone className="text-2xl" />
                                 <span className="h-6 w-[1px] bg-black"></span>
-                                <input value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full h-full outline-none border-none"  type="phone" placeholder="Telefon raqam" />
+                                <input value={phone} onChange={(e) => setPhone(e.target.value)} className="w-full h-full outline-none border-none"  type="phone" placeholder="Telefon raqam" />
                             </div>
-                            <div className="border-2 rounded-lg mb-2 flex items-center gap-2 p-2">
-                                <img src={twoUsers} alt="" />
+                            <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-2">
+                                <HiOutlineMail className="text-xl" />
                                 <span className="h-6 w-[1px] bg-black"></span>
-                                <input value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full h-full outline-none border-none"  type="email" placeholder="Elektron pochta" />
+                                <input value={email} onChange={(e) => setEmail(e.target.value)} className="w-full h-full outline-none border-none"  type="email" placeholder="Elektron pochta" />
                             </div>
-                            <div className="border-2 rounded-lg mb-2 flex items-center gap-2 p-2">
-                                <img src={twoUsers} alt="" />
+                            <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-2">
+                                <SlNote className="text-xl" />
                                 <span className="h-6 w-[1px] bg-black"></span>
-                                <input value={lastName} onChange={(e) => setLastName(e.target.value)} className="w-full h-full outline-none border-none"  type="text" placeholder="Qo'shimcha ma'lumot" />
+                                <input value={additionalInfo} onChange={(e) => setAdditionalInfo(e.target.value)} className="w-full h-full outline-none border-none"  type="text" placeholder="Qo'shimcha ma'lumot" />
                             </div>
-                            <button className="w-full bg-[#394867] text-white p-2 rounded-lg">Qo'shish</button>
+                            <button onClick={handleAddContact} className="w-full bg-[#394867] text-white p-2 rounded-lg flex items-center justify-center">
+                               <CiStar className="text-2xl mr-2" />
+                               <span className="h-6 w-[1px] bg-white"></span>
+                                <span className="grow">Qo'shish &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -89,9 +109,9 @@ export default function Home() {
                             <img className="w-8 h-8 border-1 rounded-full" src={avatar} alt="" />
                         </div>
                         <div className="border-1 rounded-lg mb-2 flex items-center gap-2 p-1.5 mx-4">
-                                <img src={twoUsers} alt="" />
+                                <CiSearch className="text-2xl" />
                                 <span className="h-6 w-[1px] bg-black"></span>
-                                <input className="w-full grow h-full outline-none border-none"  type="text" placeholder="Qo'shimcha ma'lumot" />
+                                <input className="w-full grow h-full outline-none border-none"  type="search" placeholder="Kontakt qidirish" />
                                 <span className="h-6 w-[1px] bg-black"></span>
                                 <button className="text-sm">Barchasi</button>
                         </div>
